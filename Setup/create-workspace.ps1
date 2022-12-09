@@ -62,6 +62,7 @@ $ciYamlTemplate = Get-Content -Path "./compute-instance.yaml"
     Remove-Item -Path "$($workspaceName)-ci.yaml"
 }
 
+
 # Create key vault secrets and access policies
 
 $openAIAPIKey = "..."

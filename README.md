@@ -14,4 +14,3 @@ This lab has TWO notebooks and ONE lab performed within Azure Bonsai. You should
 3. Within your instance of the Azure Portal, launch your Bonsai Workspace that was provided for you and follow these steps: https://learn.microsoft.com/en-us/bonsai/quickstart/cartpole/ 
 # Lab 3 - Azure Confidential Ledger Labs
 Open `Lab 3/confidential_ledger_lab.ipynb` within your instance of Azure Machine Learning Studio and follow the instructions within the notebook.
-
