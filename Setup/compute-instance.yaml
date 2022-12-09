@@ -1,0 +1,8 @@
+$schema: https://azuremlschemas.azureedge.net/latest/computeInstance.schema.json 
+name: <NAME>
+type: computeinstance
+size: STANDARD_DS12_v2
+idle_time_before_shutdown_minutes: 120
+create_on_behalf_of:
+  user_tenant_id: <TENANT_ID>
+  user_object_id: <USER_ID>
