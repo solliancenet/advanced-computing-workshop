@@ -46,7 +46,7 @@ $tenantId = az account show --query tenantId -o tsv
 
 $ciYamlTemplate = Get-Content -Path "./compute-instance.yaml"
 
-(2..35) | ForEach-Object {
+(1..35) | ForEach-Object {
     $workspaceName = "azureailab{0:D2}" -f $_
     $resourceGroupName = $workspaceName
     $userName = "azureai-lab-{0:D2}@solliance.net" -f $_
@@ -74,5 +74,3 @@ $openAIAPIKey = "..."
     az keyvault set-policy --name $workspaceName --resource-group $resourceGroupName --object-id $userId --secret-permissions get list
     az keyvault secret set --name "open-ai-api-key" --vault-name $workspaceName --value $openAIAPIKey
 }
-
-
