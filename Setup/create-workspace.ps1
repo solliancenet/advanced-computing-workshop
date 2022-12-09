@@ -6,6 +6,7 @@ az account show
 # az extension remove -n ml
 # az extension add -n ml --debug
 
+$workspaceCount = 35
 $yamlTemplate = Get-Content -Path "./workspace.yaml"
 $location = "westus2"
 $subscriptionId = az account show --query id --output tsv
@@ -13,7 +14,7 @@ $tenantId = az account show --query tenantId -o tsv
 
 # Create AML workspaces
 
-(1..35) | ForEach-Object {
+(1..$workspaceCount) | ForEach-Object {
     $workspaceName = "azureailab{0:D2}" -f $_
     $resourceGroupName = $workspaceName
     
@@ -34,7 +35,7 @@ $tenantId = az account show --query tenantId -o tsv
 
 # Set Contributor role assignments to users
 
-(1..35) | ForEach-Object {
+(1..$workspaceCount) | ForEach-Object {
     $workspaceName = "azureailab{0:D2}" -f $_
     $resourceGroupName = $workspaceName
     $userName = "azureai-lab-{0:D2}@solliance.net" -f $_
@@ -46,7 +47,7 @@ $tenantId = az account show --query tenantId -o tsv
 
 $ciYamlTemplate = Get-Content -Path "./compute-instance.yaml"
 
-(1..35) | ForEach-Object {
+(1..$workspaceCount) | ForEach-Object {
     $workspaceName = "azureailab{0:D2}" -f $_
     $resourceGroupName = $workspaceName
     $userName = "azureai-lab-{0:D2}@solliance.net" -f $_
@@ -65,7 +66,7 @@ $ciYamlTemplate = Get-Content -Path "./compute-instance.yaml"
 
 $openAIAPIKey = "..."
 
-(1..35) | ForEach-Object {
+(1..$workspaceCount) | ForEach-Object {
     $workspaceName = "azureailab{0:D2}" -f $_
     $resourceGroupName = $workspaceName
     $userName = "azureai-lab-{0:D2}@solliance.net" -f $_
